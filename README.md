@@ -17,19 +17,19 @@ Each of the tools we used can be further optimised; we tended to use the default
 `porechop -i INPUT.fastq -o OUTPUT.fastq`
 
 ### Random subsampling
-**[Rasusa](https://github.com/mbhall88/rasusa)**
+**[Rasusa](https://github.com/mbhall88/rasusa)**                                                                                                                                                 
 `rasusa --bases NUMBER_OF_BASES --input INPUT.fastq.gz > OUTPUT.NUMBER_OF_BASES.fastq.gz`
 
 ### Simulating nanopore reads of circa 2020 quality
-**[Badread](https://github.com/rrwick/Badread)**
+**[Badread](https://github.com/rrwick/Badread)**                                                                                                                                                             
 `badread simulate --reference SPECIES_REFERENCE_GENOME.fna --quantity 25x --error_model nanopore2020 --qscore_model nanopore2020 --length 5000,5000 --identity 90,98,5   | gzip > SPECIES_badreads.fastq.gz`
 
 ### Taxonomic classification
-**[Kraken2](https://github.com/DerrickWood/kraken2)**
+**[Kraken2](https://github.com/DerrickWood/kraken2)**                                                                                                                                             
 `kraken2 --db DATABASE READS.fastq.gz --threads 8 --confidence 0/0.05/0.1 --report READS.DATABASE.CONFIDENCE.report.tsv --output READS.DATABASE.CONFIDENCE.txt`
 
-**[EPI2ME](https://epi2me.nanoporetech.com/)**
-EPI2ME can be used via a GUI or browser, or you can submit reads to the server via the interactive command line agent (CLI):
+**[EPI2ME](https://epi2me.nanoporetech.com/)**                                                                                                                                                                       
+EPI2ME can be used via a GUI or browser, or you can submit reads to the server via the interactive command line agent (CLI):                                                                     
 `epi2me workflows run INPUT_FOLDER`
 
 ### Genome assembly and annotation
@@ -40,10 +40,7 @@ EPI2ME can be used via a GUI or browser, or you can submit reads to the server v
 `prokka --compliant --genus GENUS --species SPECIES --metagenome --cpus 8 --outdir PROKKA_OUTPUT --prefix PROKKA_OUTPUT INPUT_ASSEMBLY.fasta`
 
 ### AMR prediction tools                                                                                                                                    
-**[ABRicate](https://github.com/tseemann/ABRicate)**                                                                                                     
-`abricate --fofn FILE_OF_ASSEMBLY_FILE_NAMES.txt > OUTPUT.tsv`                                                                        
-
-`abricate --summary OUTPUT.tsv > SUMMARY.tsv`
+**[ABRicate](https://github.com/tseemann/ABRicate)**                                                                                                                                                                   `abricate FLYE_OUTPUT.fasta > abricate.tsv`
 
 **[AMRFinderPlus](https://github.com/ncbi/amr)**                                                                                       
 `amrfinder -n PROKKA_OUTPUT.fna --organism ORGANISM -p PROKKA_OUTPUT.faa -g PROKKA_OUTPUT.gff --output $patient.ecoli.amrfinder.plus --plus --annotation_format prokka --threads 8`
