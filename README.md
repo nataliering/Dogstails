@@ -32,7 +32,7 @@ Each of the tools we used can be further optimised; we tended to use the default
 `badread simulate --reference SPECIES_REFERENCE_GENOME.fna --quantity 25x --error_model nanopore2020 --qscore_model nanopore2020 --length 5000,5000 --identity 90,98,5   | gzip > SPECIES_badreads.fastq.gz`
 
 ### Taxonomic classification
-**[Kraken2](https://github.com/DerrickWood/kraken2)**
+**[Kraken2](https://github.com/DerrickWood/kraken2)**                                                                                                                          
 *Building a custom database:*                                                                                                                                              
 1. Make a directory for your custom database: `mkdir DBNAME`
 2. Download all genomes for database into a folder called **genomes/**, making sure they have the file extension .fa
