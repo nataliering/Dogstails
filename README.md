@@ -45,3 +45,7 @@ EPI2ME can be used via a GUI or browser, or you can submit reads to the server v
 
 **[AMRFinderPlus](https://github.com/ncbi/amr)**                                                                                       
 `amrfinder -n PROKKA_OUTPUT.fna --organism ORGANISM -p PROKKA_OUTPUT.faa -g PROKKA_OUTPUT.gff --output $patient.ecoli.amrfinder.plus --plus --annotation_format prokka --threads 8`
+
+**Separating reads from different channels after sequencing**                                                                                                                      
+`for i in `seq 1 1 256`; do grep -A 3 --no-group-separator "ch=$1 " reads.fastq.gz > reads.1-256.fastq.gz; done`
+
