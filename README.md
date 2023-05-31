@@ -1,5 +1,5 @@
 <p align="center">
-   <img src=https://github.com/nataliering/Dogstails/assets/23463469/243e064b-17c3-4aae-bafc-07cabd66d758 width="350"/>
+   <img src=https://github.com/nataliering/Dogstails/assets/23463469/243e064b-17c3-4aae-bafc-07cabd66d758 width="1000"/>
 </p>
 
 
