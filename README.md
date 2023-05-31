@@ -40,7 +40,7 @@ Each of the tools we used can be further optimised; we tended to use the default
 4. Use xargs to add multiple genomes to the library at once, according to how many threads you have (change "-P8"): `find genomes/ -name '*.fa' -print0 | xargs -0 -I{} -P8 -n1 kraken2-build --add-to-library {} --db DBNAME`
 5. Build the database (bear in mind, this requires as much RAM as the size of your genomes folder, which can be LARGE): `kraken2-build --build --threads 8 --db DBNAME`
 
-*Running Kraken2*
+*Running Kraken2 with your new custom database*                                                                                                                                                                 
 `kraken2 --db DBNAME READS.fastq.gz --threads 8 --confidence 0/0.05/0.1 --report READS.DBNAME.CONFIDENCE.report.tsv --output READS.DBNAME.CONFIDENCE.txt`
 
 **[EPI2ME](https://epi2me.nanoporetech.com/)**                                                                                                                                                                       
