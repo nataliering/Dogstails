@@ -1,4 +1,4 @@
-<img src=["relative/path/in/repository/to/image.svg"](https://github.com/nataliering/Dogstails/assets/23463469/e98e3490-37e5-4685-b6ca-247328e32c49") align="center" width="128"/>
+<img src=https://github.com/nataliering/Dogstails/assets/23463469/e98e3490-37e5-4685-b6ca-247328e32c4 align="center" width="128"/>
 
 # Rapid metagenomic sequencing for diagnosis and antimicrobial sensitivity prediction of canine bacterial infections 
 Code and commands used during the development of our rapid diagnostics pipeline for canine urine and skin swab samples
