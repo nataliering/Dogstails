@@ -32,8 +32,16 @@ Each of the tools we used can be further optimised; we tended to use the default
 `badread simulate --reference SPECIES_REFERENCE_GENOME.fna --quantity 25x --error_model nanopore2020 --qscore_model nanopore2020 --length 5000,5000 --identity 90,98,5   | gzip > SPECIES_badreads.fastq.gz`
 
 ### Taxonomic classification
-**[Kraken2](https://github.com/DerrickWood/kraken2)**                                                                                                                                             
-`kraken2 --db DATABASE READS.fastq.gz --threads 8 --confidence 0/0.05/0.1 --report READS.DATABASE.CONFIDENCE.report.tsv --output READS.DATABASE.CONFIDENCE.txt`
+**[Kraken2](https://github.com/DerrickWood/kraken2)**
+*Building a custom database:*                                                                                                                                              
+1. Make a directory for your custom database: `mkdir DBNAME`
+2. Download all genomes for database into a folder called **genomes/**, making sure they have the file extension .fa
+3. Download Kraken2 taxonomy: `kraken2-build --download-taxonomy --db DBNAME`
+4. Use xargs to add multiple genomes to the library at once, according to how many threads you have (change "-P8"): `find genomes/ -name '*.fa' -print0 | xargs -0 -I{} -P8 -n1 kraken2-build --add-to-library {} --db DBNAME`
+5. Build the database (bear in mind, this requires as much RAM as the size of your genomes folder, which can be LARGE): `kraken2-build --build --threads 8 --db DBNAME`
+
+*Running Kraken2*
+`kraken2 --db DBNAME READS.fastq.gz --threads 8 --confidence 0/0.05/0.1 --report READS.DBNAME.CONFIDENCE.report.tsv --output READS.DBNAME.CONFIDENCE.txt`
 
 **[EPI2ME](https://epi2me.nanoporetech.com/)**                                                                                                                                                                       
 EPI2ME can be used via a GUI or browser, or you can submit reads to the server via the interactive command line agent (CLI):                                                                     
