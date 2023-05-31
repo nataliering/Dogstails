@@ -40,7 +40,7 @@ EPI2ME can be used via a GUI or browser, or you can submit reads to the server v
 `prokka --compliant --genus GENUS --species SPECIES --metagenome --cpus 8 --outdir PROKKA_OUTPUT --prefix PROKKA_OUTPUT INPUT_ASSEMBLY.fasta`
 
 ### AMR prediction tools                                                                                                                                    
-**[ABRicate](https://github.com/tseemann/ABRicate)**                                                                                                                                                                   `abricate FLYE_OUTPUT.fasta > abricate.tsv`
+**[ABRicate](https://github.com/tseemann/ABRicate)**                                                                                                                                                                                                                          `abricate FLYE_OUTPUT.fasta > abricate.tsv`
 
 **[AMRFinderPlus](https://github.com/ncbi/amr)**                                                                                       
 `amrfinder -n PROKKA_OUTPUT.fna --organism ORGANISM -p PROKKA_OUTPUT.faa -g PROKKA_OUTPUT.gff --output $patient.ecoli.amrfinder.plus --plus --annotation_format prokka --threads 8`
