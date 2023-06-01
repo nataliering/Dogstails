@@ -23,9 +23,12 @@ Each of the tools we used can be further optimised; we tended to use the default
 **[Porechop](https://github.com/rrwick/Porechop)**  
 `porechop -i INPUT.fastq -o OUTPUT.fastq`
 
-### Random subsampling
-**[Rasusa](https://github.com/mbhall88/rasusa)**                                                                                                                                                 
+### Subsampling and filtering reads
+**[Rasusa](https://github.com/mbhall88/rasusa), random subsampling**                                                                                                                                                 
 `rasusa --bases NUMBER_OF_BASES --input INPUT.fastq.gz > OUTPUT.NUMBER_OF_BASES.fastq.gz`
+
+**[Filtlong](https://github.com/rrwick/Filtlong), filtering by length and quality**                                                                                               
+`filtlong --min_length 1000 INPUT.fastq.gz | gzip > OUTPUT.fastq.gz`
 
 ### Simulating nanopore reads of circa 2020 quality
 **[Badread](https://github.com/rrwick/Badread)**                                                                                                                                                             
